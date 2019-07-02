@@ -1,42 +1,42 @@
-import React from 'react';
-import './style.css';
-import { Switch, Route} from 'react-router-dom'
-import LocationForm from "./containers/LocationForm"
-import Header from "./containers/Header";
-import cloud from "./files/clouds.webm"
-import Footer from "./containers/Footer";
-import WeatherList from "./containers/WeatherList"
-import { withWeather } from "./context/WeatherProvider"
-import Navbar from "./containers/Navbar"
-
+import React from "react";
+import "./style.css";
+import { Switch } from "react-router-dom";
+import { Router } from "@reach/router";
+import LocationForm from "./components/LocationForm";
+import Header from "./components/Header";
+import cloud from "./files/clouds.webm";
+import Footer from "./components/Footer";
+import WeatherList from "./components/WeatherList";
+import { withWeather } from "./context/WeatherProvider";
+import Navbar from "./components/Navbar";
 
 class App extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-    render(){
-        return(
-            <div className="main-container">
-                <video playsInline autoPlay muted  loop >
-                    <source src={cloud} type="video/webm"/>
-                </video>
-                <Header />
-                <Navbar />
-                <Switch>
-                    <Route
-                        path="/"
-                        render={routerProps =>
-                        <WeatherList
-                            {...routerProps}/>
-                    }/>
-                </Switch>
-                <LocationForm />
-                <Footer />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="main-container">
+        <video playsInline autoPlay muted loop>
+          <source src={cloud} type="video/webm" />
+        </video>
+        <Header />
+        <Navbar />
+        <Switch>
+            <Router>
+              <WeatherList
+                path="/"
+                render={routerProps => <WeatherList {...routerProps} />}
+              />
+
+          </Router>
+        </Switch>
+        <LocationForm />
+        <Footer />
+      </div>
+    );
+  }
 }
-export default withWeather(App)
+export default withWeather(App);
