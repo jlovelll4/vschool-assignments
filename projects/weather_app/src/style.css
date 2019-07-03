@@ -24,6 +24,7 @@ video {
     [row4-start] "footer footer footer" 4vh[row4-end]
     / 20vw 40vw 40vw;
 }
+
 a {
   color: #fff;
   font-size: 25px;
@@ -31,18 +32,53 @@ a {
 .display-container {
   grid-area: display-container;
   display: flex;
-  flex-flow: column wrap;
+  flex-direction: column;
+  flex-grow: 0 ;
+  flex-wrap: nowrap;
   padding-top: 10px;
   align-items: center;
   justify-content: center;
+  /*align-content: center;*/
   width: 80vw;
+  height: 80vh;
   font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
   background: rgba(0, 0, 0, 0.5);
   color: white;
-  font-size: 25px;
-  /*height: 80vh;*/
+  font-size: 20px;
   overflow: scroll;
+  /*margin: auto;*/
 }
+.display-container > div{
+  width: 85%;
+}
+
+.hourly-data > span {
+  width: 100%;
+}
+.hourly-data {
+  display: flex;
+  width: 100%;
+  /*flex-direction: column;*/
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+hr  {
+  margin: 1.10em auto ;
+  max-width: 100%;
+  background-position: 50%;
+  box-sizing: border-box;
+  border-width: 0 0 1px;
+  color: whitesmoke;
+  border-image: linear-gradient(
+          90deg,
+          rgba(245,245,245, 0),
+          rgba(245,245,245, 1) 50%,
+          rgba(245,245,245, 0) 100%) 0 0 100%;
+  border-style: solid;
+}
+
+
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -57,11 +93,7 @@ a {
   border-radius: 10px;
 }
 
-.hourly-data {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 .header {
   grid-area: header;
   display: flex;
@@ -74,14 +106,17 @@ a {
   color: white;
   font-size: 14px;
 }
-
+.h3 {
+  font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+  font-size:  25px;
+}
 .form {
   grid-area: form;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
-  /*height: 11vh;*/
+  height: 11vh;
 }
 
 .navbar {
@@ -95,8 +130,9 @@ a {
   background: rgba(0, 0, 0, 0.7);
   transition: 0.2s background;
   width: 20vw;
-  /*height: 80vh;*/
+  height: 80vh;
   padding-top: 10px;
+  margin: auto;
 }
 .navbar:hover {
   background: rgba(0, 0, 0, 0.5);
@@ -110,17 +146,11 @@ a {
   text-decoration: none;
   background: rgba(0, 0, 0, 0.5);
   transition: 0.6s background;
-  /*height: 4vh;*/
+  height: 4vh;
 }
 .footer:hover {
   background: rgba(0, 0, 0, 0.9);
 }
-/*h1 {*/
-/*    font-size: 3rem;*/
-/*    text-transform: uppercase;*/
-/*    margin-top: 0;*/
-/*    letter-spacing: .3rem;*/
-/*}*/
 
 .button {
   display: block;

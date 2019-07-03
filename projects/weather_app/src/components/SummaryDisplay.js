@@ -6,12 +6,18 @@ function SummaryDisplay(props) {
   if (props.currently && props.daily) {
     return (
       <div className="display-container">
-        <h3>Current Summary</h3>
+        <span className="h3">Current Summary</span>
+          <div><hr/></div>
         <span>{props.currently.summary}</span>
-        <span>{props.currently.temperature}°F </span>
-        <span>High: {props.daily.data[0].temperatureHigh}°F</span>
+          <div><hr/></div>
+          <span> {Math.round(props.currently.temperature)}℉ </span>
+          <div><hr/></div>
+          <span>High: {props.daily.data[0].temperatureHigh}°F</span>
+          <div><hr/></div>
         <span>Low: {props.daily.data[0].temperatureLow}°F</span>
+          <div><hr/></div>
         <span>Feels Like: {props.currently.apparentTemperature}</span>
+          <div><hr/></div>
       </div>
     );
   } else {
